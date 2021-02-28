@@ -1,0 +1,28 @@
+@import './icon.less';
+
+body {
+  background-color: #f5f7f9;
+  // background-color: #eb5f5f;
+}
+
+@bgColor: #fe204a;
+
+// /deep/.van-tabs__nav {
+//   .van-tab--active {
+//     background-image: linear-gradient(to bottom, @bgColor, #fe3b35);
+//     color: #fff;
+//   }
+// }
+
+/* 所有的页面都会使用的头部导航栏样式 */
+.app-nav-bar {
+  background-image: linear-gradient(to bottom, @bgColor, #fe3b35);
+
+  .van-nav-bar__title {
+    color: #fff;
+  }
+
+  .van-icon {
+    color: #fff;
+  }
+}
