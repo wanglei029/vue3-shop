@@ -1,8 +1,15 @@
 <template>
   <!-- 子路由出口 -->
-  <keep-alive>
+  <!-- <keep-alive>
     <router-view></router-view>
-  </keep-alive>
+  </keep-alive> -->
+  <router-view v-slot="{ Component }">
+    <transition>
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </transition>
+  </router-view>
   <!-- 底部导航栏  开启路由模式 route-->
   <!-- placeholder 固定在底部时，是否在标签位置生成一个等高的占位元素 -->
   <van-tabbar v-model="active"
@@ -23,7 +30,7 @@
     <van-tabbar-item to="/nine"
                      icon-prefix="icon"
                      icon="991">9.9</van-tabbar-item>
-    <van-tabbar-item to='/'>
+    <van-tabbar-item to='/menu'>
       <span>分类</span>
       <template #icon="props">
         <van-icon class="iconfont"
@@ -31,7 +38,7 @@
                   :name="props.active ?'all-fill':'all'"></van-icon>
       </template>
     </van-tabbar-item>
-    <van-tabbar-item to='/'>
+    <van-tabbar-item to='/collection'>
       <span>收藏</span>
       <template #icon="props">
         <van-icon class="iconfont"
@@ -39,7 +46,7 @@
                   :name="props.active ?'favorites-fill':'favorites'"></van-icon>
       </template>
     </van-tabbar-item>
-    <van-tabbar-item to='/'>
+    <van-tabbar-item to='/my'>
       <span>我的</span>
       <template #icon="props">
         <van-icon class="iconfont"
